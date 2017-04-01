@@ -8,4 +8,13 @@ bazel build \
   --compilation_mode=opt \
   --verbose_failures \
   --spawn_strategy=standalone \
-  ...
+  //:pass
+
+
+bazel build \
+  --crosstool_top=tools/arm_compiler:toolchain \
+  --cpu=armeabi-v7a \
+  --compilation_mode=opt \
+  --verbose_failures \
+  --spawn_strategy=standalone \
+  //:fail

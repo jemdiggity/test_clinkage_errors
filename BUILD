@@ -1,19 +1,21 @@
-filegroup(
-    name = "srcs",
-    srcs = glob(["**"]),
-    visibility = ["//src/test/shell/bazel/testdata:__pkg__"],
+cc_library(
+    name = "fail",
+    srcs = [
+        "test_fail.cpp",
+        "foo/bar.h",
+    ],
+    includes = [
+        "foo",
+    ],
 )
 
-cc_binary(
-    name = "hello",
-    srcs = ["hello.cc"],
-    linkopts = [
-        "-lc",
-        "-lstdc++",
-        "--specs=rdimon.specs",
-        "-Wl,--start-group",
-        "-lgcc",
-        "-lrdimon",
-        "-Wl,--end-group",
+cc_library(
+    name = "pass",
+    srcs = [
+        "test_pass.cpp",
+        "foo/bar.h",
+    ],
+    includes = [
+        "foo",
     ],
 )

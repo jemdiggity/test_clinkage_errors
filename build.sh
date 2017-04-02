@@ -8,6 +8,7 @@ bazel build \
   --compilation_mode=opt \
   --verbose_failures \
   --spawn_strategy=standalone \
+  -s \
   //:pass
 
 
@@ -17,4 +18,5 @@ bazel build \
   --compilation_mode=opt \
   --verbose_failures \
   --spawn_strategy=standalone \
+  -s \
   //:fail
